@@ -1,9 +1,19 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+const routes = require('./routes');
 
 const server = express();
 
-server.get('/', (req, res) => {
-  return res.json({ 'message': `Olá ${req.query.name} seja bem vindo`});
-});
+mongoose.connect(
+  "mongodb+srv://williamroger:console.log@cluster0-dtbqt.mongodb.net/omnistack8?retryWrites=true&w=majority",
+  { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+  }
+);
+
+server.use(express.json());
+server.use(routes);
 
 server.listen(3333);
