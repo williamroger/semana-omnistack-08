@@ -44,7 +44,9 @@ export default function Main({ match }) {
 
   return (
     <div className="main-container">
-      <img src={logo} alt="Tindev" />
+      <Link to="/">
+        <img src={logo} alt="Tindev" />
+      </Link>
      
       {users.length > 0 ? (
         <ul>
